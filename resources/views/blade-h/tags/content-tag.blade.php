@@ -1,0 +1,3 @@
+<{{ $componentName }} {{ $attributes }}>
+    {{ $slot }}
+</{{ $componentName }}>
