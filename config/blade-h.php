@@ -31,6 +31,7 @@ return [
     */
     'components' => [
         'asset' => Hotash\BladeH\Components\Asset::class,
+        'img' => Hotash\BladeH\Components\Tags\ImgTag::class,
     ],
 
 ];
