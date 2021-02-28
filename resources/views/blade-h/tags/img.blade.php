@@ -1,1 +1,1 @@
-<img {{ $attributes->merge(compact('src')) }}>
+<img class="{{ $class() }}" {{ $attributes->merge(compact('src')) }}>

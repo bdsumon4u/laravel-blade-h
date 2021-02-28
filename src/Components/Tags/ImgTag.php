@@ -15,10 +15,11 @@ class ImgTag extends EmptyTag
      * ImgTag constructor.
      * @param string $src
      * @param bool $if
+     * @param array|string $class
      */
-    public function __construct(string $src, bool $if = true)
+    public function __construct(string $src, bool $if = true, $class = [])
     {
-        parent::__construct($if);
+        parent::__construct($if, $class);
         $this->src = asset($src);
     }
 }

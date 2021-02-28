@@ -17,13 +17,14 @@ class AnchorTag extends ContentTag
     /**
      * AnchorTag constructor.
      * @param bool $if
+     * @param array|string $class
      * @param string $href
      * @param string $route
      * @param string $label
      */
-    public function __construct(bool $if = true, string $href = '', string $route = '', string $label = '')
+    public function __construct(bool $if = true, $class = [], string $href = '', string $route = '', string $label = '')
     {
-        parent::__construct($if);
+        parent::__construct($if, $class);
 
         if (empty($this->href = $href) && !empty($route)) {
             $this->href = route($route);

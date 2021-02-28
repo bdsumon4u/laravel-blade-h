@@ -1,1 +1,1 @@
-<{{ $componentName }} {{ $attributes }}>
+<{{ $componentName }} class="{{ $class() }}" {{ $attributes }}>

@@ -3,6 +3,7 @@
 namespace Hotash\BladeH\Components\Tags;
 
 use Hotash\BladeH\Components\Component;
+use Hotash\BladeH\Traits\ClassManager;
 
 /**
  * Class ContentTag
@@ -10,6 +11,19 @@ use Hotash\BladeH\Components\Component;
  */
 class ContentTag extends Component
 {
+    use ClassManager;
+
+    /**
+     * ContentTag constructor.
+     * @param bool $if
+     * @param array|string $class
+     */
+    public function __construct(bool $if = true, $class = [])
+    {
+        parent::__construct($if);
+        $this->class = $class;
+    }
+
     /**
      * Get the view / contents that represents the component.
      *

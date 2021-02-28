@@ -8,7 +8,7 @@ class ImgTest extends ComponentTestCase
     public function can_be_rendered(): void
     {
         $this->assertComponentRenders(
-            '<img src="http://localhost/">',
+            '<img class="" src="http://localhost/">',
             '<H:img src="" />'
         );
     }
@@ -26,7 +26,7 @@ class ImgTest extends ComponentTestCase
     public function can_accept_custom_attribute(): void
     {
         $this->assertComponentRenders(
-            '<img src="http://localhost/asset-path" id="avatar">',
+            '<img class="" src="http://localhost/asset-path" id="avatar">',
             '<H:img src="asset-path" id="avatar" />'
         );
     }

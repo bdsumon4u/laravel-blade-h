@@ -10,7 +10,7 @@ class AnchorTest extends ComponentTestCase
     public function can_be_rendered(): void
     {
         $expected = <<<'HTML'
-            <a href="">
+            <a class="" href="">
                 Click Here
             </a>
             HTML;
@@ -33,7 +33,7 @@ class AnchorTest extends ComponentTestCase
     public function can_accept_href_attribute(): void
     {
         $expected = <<<'HTML'
-            <a href="external-link">
+            <a class="" href="external-link">
                 external-link
             </a>
             HTML;
@@ -49,7 +49,7 @@ class AnchorTest extends ComponentTestCase
         Route::get('internal-link', static function () {})->name('internal.link');
 
         $expected = <<<'HTML'
-            <a href="http://localhost/internal-link">
+            <a class="" href="http://localhost/internal-link">
                 http://localhost/internal-link
             </a>
             HTML;
@@ -63,7 +63,7 @@ class AnchorTest extends ComponentTestCase
     public function can_accept_label_attribute(): void
     {
         $expected = <<<'HTML'
-            <a href="external-link">
+            <a class="" href="external-link">
                 Follow Link
             </a>
             HTML;
@@ -77,7 +77,7 @@ class AnchorTest extends ComponentTestCase
     public function can_accept_custom_attribute(): void
     {
         $expected = <<<'HTML'
-            <a href="external-link" id="external-link">
+            <a class="" href="external-link" id="external-link">
                 Follow Link
             </a>
             HTML;
@@ -91,7 +91,7 @@ class AnchorTest extends ComponentTestCase
     public function slot_has_more_precedence_than_label(): void
     {
         $expected = <<<'HTML'
-            <a href="external-link" id="external-link">
+            <a class="" href="external-link" id="external-link">
                 External Link
             </a>
             HTML;
