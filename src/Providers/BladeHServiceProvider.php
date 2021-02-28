@@ -51,6 +51,8 @@ class BladeHServiceProvider extends ServiceProvider
         }
 
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'blade-h');
+
+        $this->bootHotashComponents();
     }
 
     /**
@@ -60,6 +62,20 @@ class BladeHServiceProvider extends ServiceProvider
     {
         $this->app->singleton('blade-h', function ($app) {
             return new BladeH;
+        });
+    }
+
+    /**
+     * Boot components.
+     */
+    protected function bootHotashComponents(): void
+    {
+        $this->callAfterResolving('blade.compiler', function ($blade) {
+            $prefix = config('blade-h.prefix', '');
+
+            foreach (config('blade-h.components', []) as $alias => $component) {
+                $blade->hotash($component, $alias, $prefix);
+            }
         });
     }
 }
