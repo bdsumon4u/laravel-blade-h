@@ -1,0 +1,5 @@
+preset: laravel
+
+disabled:
+  - heredoc_indentation
+  - single_class_element_per_statement
