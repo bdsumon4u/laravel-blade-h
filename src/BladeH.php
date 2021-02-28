@@ -10,6 +10,6 @@ class BladeH
 {
     public function bladeH(): string
     {
-        return view('blade-h::blade-h');
+        return view('blade-h::blade-h.blade-h');
     }
 }

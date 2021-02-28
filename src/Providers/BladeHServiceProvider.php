@@ -3,6 +3,7 @@
 namespace Hotash\BladeH\Providers;
 
 use Hotash\BladeH\BladeH;
+use Hotash\BladeH\Compilers\BladeCompiler;
 use Hotash\BladeH\Facades\BladeH as BladeHFacade;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
@@ -23,6 +24,10 @@ class BladeHServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../../config/blade-h.php', 'blade-h');
 
         $this->registerFacades();
+
+        $this->app->singleton('blade.compiler', function ($app) {
+            return new BladeCompiler($app['files'], $app['config']['view.compiled']);
+        });
 
         $this->app->booting(function () {
             AliasLoader::getInstance()->alias('BladeH', BladeHFacade::class);
