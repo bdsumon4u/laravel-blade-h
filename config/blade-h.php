@@ -33,6 +33,7 @@ return [
         'asset' => Hotash\BladeH\Components\Asset::class,
         'img' => Hotash\BladeH\Components\Tags\ImgTag::class,
         'a' => Hotash\BladeH\Components\Tags\AnchorTag::class,
+        'form' => Hotash\BladeH\Components\Forms\Form::class,
     ],
 
 ];
