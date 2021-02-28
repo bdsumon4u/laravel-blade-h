@@ -1,8 +1,9 @@
 <?php
 
-namespace Tests\Components;
+namespace Tests\Components\Tags;
 
 use Illuminate\Support\Facades\Route;
+use Tests\Components\ComponentTestCase;
 
 class AnchorTest extends ComponentTestCase
 {
@@ -98,6 +99,34 @@ class AnchorTest extends ComponentTestCase
 
         $this->assertComponentRenders($expected,
             '<H:a href="external-link" label="Follow Link" id="external-link">External Link</H:a>'
+        );
+    }
+
+    /** @test */
+    public function class_can_be_added()
+    {
+        $expected = <<<'HTML'
+            <a class="twinkle twinkle little star" href="external-link">
+                Follow Link
+            </a>
+            HTML;
+
+        $this->assertComponentRenders($expected,
+            '<H:a href="external-link" label="Follow Link" class="twinkle twinkle little star" />'
+        );
+    }
+
+    /** @test */
+    public function class_can_be_passed_as_array()
+    {
+        $expected = <<<'HTML'
+            <a class="hotash planet" href="external-link">
+                Follow Link
+            </a>
+            HTML;
+
+        $this->assertComponentRenders($expected,
+            '<H:a href="external-link" label="Follow Link" :class="[\'hotash\', \'planet\']" />'
         );
     }
 }

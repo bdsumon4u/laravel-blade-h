@@ -1,6 +1,8 @@
 <?php
 
-namespace Tests\Components;
+namespace Tests\Components\Tags;
+
+use Tests\Components\ComponentTestCase;
 
 class ImgTest extends ComponentTestCase
 {
@@ -28,6 +30,24 @@ class ImgTest extends ComponentTestCase
         $this->assertComponentRenders(
             '<img class="" src="http://localhost/asset-path" id="avatar">',
             '<H:img src="asset-path" id="avatar" />'
+        );
+    }
+
+    /** @test */
+    public function class_can_be_added()
+    {
+        $this->assertComponentRenders(
+            '<img class="twinkle twinkle little star" src="http://localhost/asset-path" id="avatar">',
+            '<H:img src="asset-path" id="avatar" class="twinkle twinkle little star" />'
+        );
+    }
+
+    /** @test */
+    public function class_can_be_passed_as_array()
+    {
+        $this->assertComponentRenders(
+            '<img class="hotash planet" src="http://localhost/asset-path" id="avatar">',
+            '<H:img src="asset-path" id="avatar" :class="[\'hotash\', \'planet\']" />'
         );
     }
 }

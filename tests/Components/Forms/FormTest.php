@@ -110,4 +110,32 @@ class FormTest extends ComponentTestCase
             '<H:form action="http://example.com" id="hotash-form">Form fields...</H:form>'
         );
     }
+
+    /** @test */
+    public function class_can_be_added()
+    {
+        $expected = <<<'HTML'
+            <form method="GET" class="twinkle twinkle little star" enctype="application/x-www-form-urlencoded" action="http://example.com" id="hotash-form">
+                Form fields...
+            </form>
+            HTML;
+
+        $this->assertComponentRenders($expected,
+            '<H:form action="http://example.com" id="hotash-form" class="twinkle twinkle little star">Form fields...</H:form>'
+        );
+    }
+
+    /** @test */
+    public function class_can_be_passed_as_array()
+    {
+        $expected = <<<'HTML'
+            <form method="GET" class="hotash planet" enctype="application/x-www-form-urlencoded" action="http://example.com" id="hotash-form">
+                Form fields...
+            </form>
+            HTML;
+
+        $this->assertComponentRenders($expected,
+            '<H:form action="http://example.com" id="hotash-form" :class="[\'hotash\', \'planet\']">Form fields...</H:form>'
+        );
+    }
 }
