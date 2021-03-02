@@ -1,1 +1,1 @@
-<textarea class="{{ $class() }}" {{ $attributes->merge(compact('name', 'id')) }}>{{ $slot->isEmpty() ? $value : old($old(), $slot) }}</textarea>
+<textarea class="{{ $class() }}" {{ $attributes->merge(compact('name', 'id')) }}>{{ $slot->isEmpty() ? $value : old($key(), $slot) }}</textarea>

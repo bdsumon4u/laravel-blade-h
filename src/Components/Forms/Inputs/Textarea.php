@@ -14,12 +14,12 @@ class Textarea extends Input
      * @param string $name
      * @param bool $if
      * @param array|string $class
-     * @param string $old
+     * @param string $key
      * @param string $id
      * @param string|null $value
      */
-    public function __construct(string $name, $if = true, $class = [], $old = '', $id = '', $value = null)
+    public function __construct(string $name, $if = true, $class = [], $key = '', $id = '', $value = null)
     {
-        parent::__construct($name, $if, $class, $old, $id, 'textarea', $value);
+        parent::__construct($name, $if, $class, $key, $id, 'textarea', $value);
     }
 }

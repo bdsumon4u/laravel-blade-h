@@ -91,12 +91,12 @@ class TextareaTest extends ComponentTestCase
 
         $this->assertComponentRenders(
             '<textarea class="" name="user[][data][bio]" id="user-bio">My Bio</textarea>',
-            '<H:textarea name="user[][data][bio]" old="user.0.data.bio" id="user-bio" value="Bio" />',
+            '<H:textarea name="user[][data][bio]" key="user.0.data.bio" id="user-bio" value="Bio" />',
         );
 
         $this->assertComponentRenders(
             '<textarea class="" name="user[data][bio][]" id="user-bio">My Bio</textarea>',
-            '<H:textarea name="user[data][bio][]" old="user.data.bio.1" id="user-bio" value="Biography">Bio</H:textarea>',
+            '<H:textarea name="user[data][bio][]" key="user.data.bio.1" id="user-bio" value="Biography">Bio</H:textarea>',
         );
     }
 

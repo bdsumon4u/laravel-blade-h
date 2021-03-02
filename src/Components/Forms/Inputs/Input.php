@@ -26,22 +26,22 @@ class Input extends EmptyTag
      * @param string $name
      * @param bool $if
      * @param array|string $class
-     * @param string $old
+     * @param string $key
      * @param string $id
      * @param string $type
      * @param string|null $value
      */
-    public function __construct(string $name, $if = true, $class = [], $old = '', $id = '', $type = 'text', $value = null)
+    public function __construct(string $name, $if = true, $class = [], $key = '', $id = '', $type = 'text', $value = null)
     {
         parent::__construct($if, $class);
         $this->name = $name;
-        $this->old = $old;
+        $this->key = $key;
         $this->id = $id;
         $this->type = $type;
 
         $this->value = $value;
-        if ($this->old || !Str::contains($name, '[]')) {
-            $this->value = old($this->old(), $this->value);
+        if ($this->key || !Str::contains($name, '[]')) {
+            $this->value = old($this->key(), $this->value);
         }
     }
 

@@ -41,6 +41,7 @@ return [
         'password' => Hotash\BladeH\Components\Forms\Inputs\Input::class,
         'textarea' => Hotash\BladeH\Components\Forms\Inputs\Textarea::class,
         'label' => Hotash\BladeH\Components\Forms\Label::class,
+        'error' => Hotash\BladeH\Components\Forms\Error::class,
     ],
 
 ];

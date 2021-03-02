@@ -14,7 +14,7 @@ trait NameManager
     public $name;
 
     /** @var string */
-    protected $old;
+    protected $key;
 
     /** @var string */
     protected $id;
@@ -22,13 +22,13 @@ trait NameManager
     /**
      * @return string
      */
-    public function old(): string
+    public function key(): string
     {
-        if ($this->old) {
-            return $this->old;
+        if ($this->key) {
+            return $this->key;
         }
 
-        return $this->old
+        return $this->key
             = Str::containsAll($this->name, ['[', ']'])
             ? Str::of($this->name)
                 ->replace('[]', '.*.')
@@ -47,7 +47,7 @@ trait NameManager
             return $this->id;
         }
 
-        return $this->id = Str::of($this->old())
+        return $this->id = Str::of($this->key())
             ->replaceMatches('/[._]/', '-')
             ->replace('*', '');
     }

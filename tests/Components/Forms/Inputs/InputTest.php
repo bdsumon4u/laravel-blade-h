@@ -110,12 +110,12 @@ class InputTest extends ComponentTestCase
 
         $this->assertComponentRenders(
             '<input class="" type="password" name="user[][data][password]" id="user-password" value="default">',
-            '<H:password name="user[][data][password]" old="user.0.data.password" id="user-password" value="passcode" />',
+            '<H:password name="user[][data][password]" key="user.0.data.password" id="user-password" value="passcode" />',
         );
 
         $this->assertComponentRenders(
             '<input class="" type="password" name="user[data][password][]" id="user-password" value="changed">',
-            '<H:password name="user[data][password][]" old="user.data.password.1" id="user-password" value="passcode" />',
+            '<H:password name="user[data][password][]" key="user.data.password.1" id="user-password" value="passcode" />',
         );
     }
 
