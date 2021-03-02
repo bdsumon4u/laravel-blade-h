@@ -34,6 +34,11 @@ return [
         'img' => Hotash\BladeH\Components\Tags\ImgTag::class,
         'a' => Hotash\BladeH\Components\Tags\AnchorTag::class,
         'form' => Hotash\BladeH\Components\Forms\Form::class,
+        'input' => Hotash\BladeH\Components\Forms\Inputs\Input::class,
+        'email' => Hotash\BladeH\Components\Forms\Inputs\Input::class,
+        'hidden' => Hotash\BladeH\Components\Forms\Inputs\Input::class,
+        'number' => Hotash\BladeH\Components\Forms\Inputs\Input::class,
+        'password' => Hotash\BladeH\Components\Forms\Inputs\Input::class,
     ],
 
 ];
