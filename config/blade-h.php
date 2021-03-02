@@ -39,6 +39,7 @@ return [
         'hidden' => Hotash\BladeH\Components\Forms\Inputs\Input::class,
         'number' => Hotash\BladeH\Components\Forms\Inputs\Input::class,
         'password' => Hotash\BladeH\Components\Forms\Inputs\Input::class,
+        'textarea' => Hotash\BladeH\Components\Forms\Inputs\Textarea::class,
     ],
 
 ];
