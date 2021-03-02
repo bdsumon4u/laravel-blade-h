@@ -3,7 +3,12 @@
 namespace Hotash\BladeH\Components\Forms;
 
 use Hotash\BladeH\Components\Tags\ContentTag;
+use Hotash\BladeH\Facades\FormH;
 
+/**
+ * Class Form
+ * @package Hotash\BladeH\Components\Forms
+ */
 class Form extends ContentTag
 {
     /**
@@ -21,12 +26,14 @@ class Form extends ContentTag
      *
      * @param bool $if
      * @param array $class
+     * @param object|null $model
      * @param string $method
      * @param bool $multipart
      */
-    public function __construct($if = true, $class = [], $method = 'GET', $multipart = false)
+    public function __construct($if = true, $class = [], object $model = null, $method = 'GET', $multipart = false)
     {
         parent::__construct($if, $class);
+        FormH::open($model);
         $this->method = strtoupper($method);
         $this->multipart = $multipart;
     }
@@ -49,5 +56,13 @@ class Form extends ContentTag
     public function render()
     {
         return view('blade-h::blade-h.forms.form');
+    }
+
+    /**
+     * Destroy the form.
+     */
+    public function destroy()
+    {
+        FormH::close();
     }
 }

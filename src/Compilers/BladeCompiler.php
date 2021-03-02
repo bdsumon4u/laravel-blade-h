@@ -8,6 +8,8 @@ use Illuminate\View\Compilers\ComponentTagCompiler;
 
 class BladeCompiler extends IlluminateBladeCompiler
 {
+    use Concerns\CompilesComponents;
+
     /**
      * The array of hotash component aliases and their class names.
      *

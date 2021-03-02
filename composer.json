@@ -45,7 +45,8 @@
                 "Hotash\\BladeH\\Providers\\BladeHServiceProvider"
             ],
             "aliases": {
-                "BladeH": "Hotash\\BladeH\\Facades\\BladeH"
+                "BladeH": "Hotash\\BladeH\\Facades\\BladeH",
+                "FormH": "Hotash\\BladeH\\Facades\\FormH"
             }
         }
     }

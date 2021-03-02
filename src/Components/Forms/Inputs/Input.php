@@ -3,6 +3,7 @@
 namespace Hotash\BladeH\Components\Forms\Inputs;
 
 use Hotash\BladeH\Components\Tags\EmptyTag;
+use Hotash\BladeH\Facades\FormH;
 use Hotash\BladeH\Traits\NameManager;
 use Illuminate\Support\Str;
 
@@ -39,7 +40,7 @@ class Input extends EmptyTag
         $this->id = $id;
         $this->type = $type;
 
-        $this->value = $value;
+        $this->value = FormH::value($name, $value);
         if ($this->key || !Str::contains($name, '[]')) {
             $this->value = old($this->key(), $this->value);
         }

@@ -3,8 +3,10 @@
 namespace Hotash\BladeH\Providers;
 
 use Hotash\BladeH\BladeH;
+use Hotash\BladeH\Builders\FormBuilder;
 use Hotash\BladeH\Compilers\BladeCompiler;
 use Hotash\BladeH\Facades\BladeH as BladeHFacade;
+use Hotash\BladeH\Facades\FormH as FormHFacade;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
@@ -31,6 +33,7 @@ class BladeHServiceProvider extends ServiceProvider
 
         $this->app->booting(function () {
             AliasLoader::getInstance()->alias('BladeH', BladeHFacade::class);
+            AliasLoader::getInstance()->alias('FormH', FormHFacade::class);
         });
     }
 
@@ -62,6 +65,10 @@ class BladeHServiceProvider extends ServiceProvider
     {
         $this->app->singleton('blade-h', function ($app) {
             return new BladeH;
+        });
+
+        $this->app->singleton('blade-h.form', function ($app) {
+            return new FormBuilder;
         });
     }
 
