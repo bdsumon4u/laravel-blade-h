@@ -42,6 +42,8 @@ return [
         'textarea' => Hotash\BladeH\Components\Forms\Inputs\Textarea::class,
         'label' => Hotash\BladeH\Components\Forms\Label::class,
         'error' => Hotash\BladeH\Components\Forms\Error::class,
+        'radio' => Hotash\BladeH\Components\Forms\Inputs\Checkable::class,
+        'checkbox' => Hotash\BladeH\Components\Forms\Inputs\Checkable::class,
     ],
 
 ];

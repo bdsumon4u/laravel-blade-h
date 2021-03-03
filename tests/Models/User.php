@@ -11,7 +11,7 @@ class User extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'email', 'age', 'hobbies', 'password',
+        'name', 'email', 'age', 'gender', 'hobbies', 'password',
     ];
 
     protected $casts = [

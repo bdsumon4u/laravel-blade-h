@@ -26,6 +26,7 @@ class UserFactory extends Factory
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'age' => $this->faker->numberBetween(13, 35),
+            'gender' => ['male', 'female', 'other'][random_int(0, 2)],
             'hobbies' => $this->faker->words(random_int(3, 5)),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         ];

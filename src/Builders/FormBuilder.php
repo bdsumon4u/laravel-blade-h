@@ -2,6 +2,8 @@
 
 namespace Hotash\BladeH\Builders;
 
+use Illuminate\Support\Str;
+
 /**
  * Class FormBuilder
  * @package Hotash\BladeH\Builders
@@ -50,7 +52,7 @@ class FormBuilder
      */
     public function get(string $name, $default = null)
     {
-        return optional($this->model)->{$name} ?: $default;
+        return optional($this->model)->{$this->getPropertyName($name)} ?: $default;
     }
 
     /**
@@ -62,6 +64,17 @@ class FormBuilder
      */
     public function value(string $name, $explicit = null)
     {
-        return $explicit ?: optional($this->model)->{$name};
+        return $explicit ?: optional($this->model)->{$this->getPropertyName($name)};
+    }
+
+    /**
+     * Get property name from input name.
+     *
+     * @param string $name
+     * @return string
+     */
+    protected function getPropertyName(string $name): string
+    {
+        return Str::replaceLast('[]', '', $name);
     }
 }
