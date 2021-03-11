@@ -47,7 +47,8 @@
             ],
             "aliases": {
                 "BladeH": "Hotash\\BladeH\\Facades\\BladeH",
-                "FormH": "Hotash\\BladeH\\Facades\\FormH"
+                "FormH": "Hotash\\BladeH\\Facades\\FormH",
+                "SelectH": "Hotash\\BladeH\\Facades\\SelectH"
             }
         }
     }

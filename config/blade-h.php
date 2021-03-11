@@ -45,6 +45,7 @@ return [
         'radio' => Hotash\BladeH\Components\Forms\Inputs\Checkable::class,
         'checkbox' => Hotash\BladeH\Components\Forms\Inputs\Checkable::class,
         'select' => Hotash\BladeH\Components\Forms\Inputs\Select::class,
+        'option' => Hotash\BladeH\Components\Forms\Inputs\Option::class,
     ],
 
 ];

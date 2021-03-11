@@ -55,9 +55,9 @@ class SelectTest extends ComponentTestCase
         $this->flashOld(['id' => [1, 7]]);
         $expected = <<<'HTML'
             <select class="" name="id" id="id">
-                <option value="1" selected>1</option>
+                <option value="1" selected="selected">1</option>
                 <option value="4">4</option>
-                <option value="7" selected>7</option>
+                <option value="7" selected="selected">7</option>
             </select>
             HTML;
 
@@ -106,7 +106,7 @@ class SelectTest extends ComponentTestCase
         $expected = <<<'HTML'
             <select class="" name="status" id="status">
                 <option value="pending">Pending</option>
-                <option value="complete" selected>Complete</option>
+                <option value="complete" selected="selected">Complete</option>
                 <option value="returned">Returned</option>
             </select>
             HTML;
@@ -192,7 +192,7 @@ class SelectTest extends ComponentTestCase
                 <option value="sumon-ahmed">Sumon Ahmed</option>
                 <option value="hotash-planet">Hotash Planet</option>
                 <option value="php">PHP</option>
-                <option value="laravel" selected>Laravel</option>
+                <option value="laravel" selected="selected">Laravel</option>
                 <option value="javascript">JavaScript</option>
             </select>
             HTML;
@@ -214,9 +214,9 @@ class SelectTest extends ComponentTestCase
         $expected = <<<'HTML'
             <select class="" name="demo" id="demo">
                 <option value="sumon-ahmed">Sumon Ahmed</option>
-                <option value="hotash-planet" selected>Hotash Planet</option>
+                <option value="hotash-planet" selected="selected">Hotash Planet</option>
                 <option value="php">PHP</option>
-                <option value="laravel" selected>Laravel</option>
+                <option value="laravel" selected="selected">Laravel</option>
                 <option value="javascript">JavaScript</option>
             </select>
             HTML;
@@ -241,7 +241,7 @@ class SelectTest extends ComponentTestCase
                 <option value="sumon-ahmed">Sumon Ahmed</option>
                 <option value="hotash-planet">Hotash Planet</option>
                 <option value="php">PHP</option>
-                <option value="laravel" disabled>Laravel</option>
+                <option value="laravel" disabled="disabled">Laravel</option>
                 <option value="javascript">JavaScript</option>
             </select>
             HTML;
@@ -263,9 +263,9 @@ class SelectTest extends ComponentTestCase
         $expected = <<<'HTML'
             <select class="" name="demo" id="demo">
                 <option value="sumon-ahmed">Sumon Ahmed</option>
-                <option value="hotash-planet" disabled>Hotash Planet</option>
+                <option value="hotash-planet" disabled="disabled">Hotash Planet</option>
                 <option value="php">PHP</option>
-                <option value="laravel" disabled>Laravel</option>
+                <option value="laravel" disabled="disabled">Laravel</option>
                 <option value="javascript">JavaScript</option>
             </select>
             HTML;

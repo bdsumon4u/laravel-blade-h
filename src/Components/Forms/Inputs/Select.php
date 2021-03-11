@@ -3,6 +3,7 @@
 namespace Hotash\BladeH\Components\Forms\Inputs;
 
 use Hotash\BladeH\Facades\FormH;
+use Hotash\BladeH\Facades\SelectH;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
@@ -12,12 +13,6 @@ use Illuminate\Support\Str;
  */
 class Select extends Input
 {
-    /** @var mixed */
-    public $selected;
-
-    /** @var mixed */
-    public $disabled;
-
     /** @var bool */
     public $multiple;
 
@@ -29,17 +24,17 @@ class Select extends Input
      * @param array $class
      * @param string $key
      * @param string $id
-     * @param null $value
-     * @param $selected
-     * @param $disabled
+     * @param string $type
+     * @param array $value
+     * @param mixed $selected
+     * @param mixed $disabled
      * @param bool $multiple
      */
-    public function __construct(string $name, $if = true, $class = [], $key = '', $id = '', $value = null, $selected = [], $disabled = [], $multiple = false)
+    public function __construct(string $name, $if = true, $class = [], $key = '', $id = '', $type = 'select', $value = null, $selected = [], $disabled = [], $multiple = false)
     {
-        parent::__construct($name, $if, $class, $key, $id, 'select');
-        $this->value = $this->extract(FormH::value($name, $value));
-        $this->selected = old($this->key(), $selected);
-        $this->disabled = $disabled;
+        parent::__construct($name, $if, $class, $key, $id, $type);
+        $value = $this->extract(FormH::value($name, $value));
+        SelectH::open($value, old($this->key(), $selected), $disabled);
         $this->multiple = $multiple || Str::contains($name, '[]');
     }
 
@@ -47,7 +42,7 @@ class Select extends Input
      * @param $value
      * @return array
      */
-    public function extract($value): array
+    public function extract($value)
     {
         if (is_array($value)) {
             if (Arr::isAssoc($value)) {
@@ -64,24 +59,10 @@ class Select extends Input
     }
 
     /**
-     * @param $selected
-     * @return bool
+     * Destroy the select.
      */
-    public function isSelected($selected): bool
+    public function destroy()
     {
-        return is_array($this->selected)
-            ? in_array($selected, $this->selected)
-            : $this->selected == $selected;
-    }
-
-    /**
-     * @param $disabled
-     * @return bool
-     */
-    public function isDisabled($disabled): bool
-    {
-        return is_array($this->disabled)
-            ? in_array($disabled, $this->disabled)
-            : $this->disabled == $disabled;
+        SelectH::close();
     }
 }
