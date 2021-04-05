@@ -29,9 +29,9 @@ class BladeHServiceProvider extends ServiceProvider
 
         $this->registerFacades();
 
-        $this->app->singleton('blade.compiler', function ($app) {
-            return new BladeCompiler($app['files'], $app['config']['view.compiled']);
-        });
+//        $this->app->singleton('blade.compiler', function ($app) {
+//            return new BladeCompiler($app['files'], $app['config']['view.compiled']);
+//        });
 
         $this->app->booting(function () {
             AliasLoader::getInstance()->alias('BladeH', BladeHFacade::class);
@@ -88,7 +88,7 @@ class BladeHServiceProvider extends ServiceProvider
             $prefix = config('blade-h.prefix', '');
 
             foreach (config('blade-h.components', []) as $alias => $component) {
-                $blade->hotash($component, $alias, $prefix);
+                $blade->component($component, $alias, $prefix);
             }
         });
     }
